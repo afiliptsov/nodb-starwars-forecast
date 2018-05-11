@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import axios from "axios";
+const baseUrl = "http://localhost:3001/api/ships";
 
 export default class CreateAShip extends Component {
   constructor() {
@@ -57,6 +58,10 @@ export default class CreateAShip extends Component {
           maxSpeed: ""
         });
       });
+  }
+
+  removeShip(id) {
+    axios.delete();
   }
 
   getShip() {

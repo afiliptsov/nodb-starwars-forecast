@@ -17,5 +17,11 @@ module.exports = {
   },
   getShips: (req, res) => {
     res.status(200).send(shipList);
+  },
+  deleteShip: (req, res) => {
+    const deleteID = req.params.id;
+    shipIndex = shipList.findIndex(ship => ship.id == deleteID);
+    shipList.splice(shipIndex, 1);
+    res.status(200).send(shipList);
   }
 };

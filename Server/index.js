@@ -12,13 +12,9 @@ const baseUrl = "/api/ships";
 
 app.get(baseUrl, sp.getShips);
 
-app.post("/api/ships", sp.addShip)
+app.post(baseUrl, sp.addShip);
+app.delete(`${baseUrl}/:id`, sp.deleteShip);
 
-
-
-
-
-app.listen(port,()=>
-console.log(`This is BB8 and i am listening on port: ${port}`));
-
-
+app.listen(port, () =>
+  console.log(`This is BB8 and i am listening on port: ${port}`)
+);
