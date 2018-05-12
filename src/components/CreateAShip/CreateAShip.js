@@ -17,6 +17,7 @@ export default class CreateAShip extends Component {
 
     this.componentDidMount = this.componentDidMount.bind(this);
     this.createAShip = this.createAShip.bind(this);
+    this.removeShip = this.removeShip.bind(this);
   }
 
   onChangeHandler(e, key) {
@@ -31,7 +32,7 @@ export default class CreateAShip extends Component {
 
   componentDidMount() {
     console.log("HIT");
-    axios.get("http://localhost:3001/api/ships").then(response => {
+    axios.get(baseUrl).then(response => {
       this.setState({
         shipArray: response.data
       });
@@ -46,22 +47,24 @@ export default class CreateAShip extends Component {
       crew: this.state.crew,
       cargoCapacity: this.state.cargoCapacity
     };
-    axios
-      .post("http://localhost:3001/api/ships", { shipObject })
-      .then(response => {
-        console.log(response);
-        this.setState({
-          shipArray: response.data,
-          name: "",
-          crew: "",
-          cargoCapacity: "",
-          maxSpeed: ""
-        });
+    axios.post(baseUrl, { shipObject }).then(response => {
+      console.log(response);
+      this.setState({
+        shipArray: response.data,
+        name: "",
+        crew: "",
+        cargoCapacity: "",
+        maxSpeed: ""
       });
+    });
   }
 
   removeShip(id) {
-    axios.delete();
+    axios.delete(baseUrl + `/${id}`).then(response => {
+      this.setState({
+        shipArray: response.data
+      });
+    });
   }
 
   getShip() {
@@ -81,6 +84,7 @@ export default class CreateAShip extends Component {
           <p>{element.maxSpeed}</p>
           <p>{element.crew}</p>
           <p>{element.cargoCapacity}</p>
+          <button onClick={id => this.removeShip(element.id)}>Remove</button>
         </div>
       );
     });
