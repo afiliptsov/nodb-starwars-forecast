@@ -14,6 +14,7 @@ app.get(baseUrl, sp.getShips);
 
 app.post(baseUrl, sp.addShip);
 app.delete(`${baseUrl}/:id`, sp.deleteShip);
+app.put(`${baseUrl}/:id`, sp.editShip);
 
 app.listen(port, () =>
   console.log(`This is BB8 and i am listening on port: ${port}`)
