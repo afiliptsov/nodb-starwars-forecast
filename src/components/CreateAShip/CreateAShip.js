@@ -154,7 +154,7 @@ export default class CreateAShip extends Component {
             <p>{el.name}</p>
             <input
               type="text"
-              placeholder={this.state.name}
+              placeholder="Name"
               value={this.state.name}
               onChange={e => this.onChangeHandler(e, "name")}
             />
@@ -162,21 +162,21 @@ export default class CreateAShip extends Component {
           <p>{el.maxSpeed}</p>
           <input
             type="text"
-            placeholder="test"
+            placeholder="Maximum Speed"
             value={this.state.maxSpeed}
             onChange={e => this.onChangeHandler(e, "maxSpeed")}
           />
           <p>{el.crew}</p>
           <input
             type="text"
-            placeholder="test"
+            placeholder="Crew"
             value={this.state.crew}
             onChange={e => this.onChangeHandler(e, "crew")}
           />
           <p>{el.cargoCapacity}</p>
           <input
             type="text"
-            placeholder="test"
+            placeholder="Cargo Capacity"
             value={this.state.cargoCapacity}
             onChange={e => this.onChangeHandler(e, "cargoCapacity")}
           />
@@ -189,20 +189,23 @@ export default class CreateAShip extends Component {
     return (
       <div className="create-ship-class">
         <div className="ship-input-box">
-          <button onClick={() => this.createAShip()} />
-          <label>{this.state.name}</label>
+          <button onClick={() => this.createAShip()}>ORDER</button>
+          <label>Name:</label>
           <input
             value={this.state.name}
             onChange={e => this.onChangeHandler(e, "name")}
           />
+          <label>Maximum Speed:</label>
           <input
             value={this.state.maxSpeed}
             onChange={e => this.onChangeHandler(e, "maxSpeed")}
           />
+          <label>Crew:</label>
           <input
             value={this.state.crew}
             onChange={e => this.onChangeHandler(e, "crew")}
           />
+          <label>Cargo:</label>
           <input
             value={this.state.cargoCapacity}
             onChange={e => this.onChangeHandler(e, "cargoCapacity")}
