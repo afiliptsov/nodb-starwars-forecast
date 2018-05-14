@@ -2,14 +2,15 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./Forecast.css";
 import Button from "material-ui/Button";
+import HomeButton from "../HomeButton/HomeButton";
 
 const starWarsURL = "https://swapi.co/api/vehicles/";
 const baseWeatherUrl = "http://api.openweathermap.org/data/2.5/weather?q=";
 const apiKey = "&APPID=0a24ad14057cb763cfd0d01dab910c06";
 
 export default class Forecast extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       shipArr: [],
       city: "",
@@ -44,11 +45,7 @@ export default class Forecast extends Component {
   }
 
   makeWeatherForecast() {
-    if ((this.state.weather = "Clouds")) {
-      this.setState({
-        prediction: "Test Weather"
-      });
-    }
+    this.setState({ prediction: this.state.weather });
   }
 
   render() {
@@ -72,6 +69,7 @@ export default class Forecast extends Component {
 
     return (
       <div>
+        <HomeButton moveToHome={this.props.moveToHome} />
         <div className="weather-input-submit-field">
           <div>
             <input

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import HomeButton from "../HomeButton/HomeButton";
+import DarthVader from "../DarthVader/DarthVader";
 import Button from "material-ui/Button";
 import "./CreateAShip.css";
 
@@ -7,8 +9,8 @@ import axios from "axios";
 const baseUrl = "http://localhost:3001/api/ships";
 
 export default class CreateAShip extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       shipObj: {},
       name: "",
@@ -17,13 +19,15 @@ export default class CreateAShip extends Component {
       cargoCapacity: "",
       shipArray: [],
       edit: false,
-      editFlag: false
+      editFlag: false,
+      showVader: false
     };
 
     this.componentDidMount = this.componentDidMount.bind(this);
     this.createAShip = this.createAShip.bind(this);
     this.removeShip = this.removeShip.bind(this);
     this.editShip = this.editShip.bind(this);
+    this.showVader = this.showVader.bind(this);
   }
 
   onChangeHandler(e, key) {
@@ -78,6 +82,13 @@ export default class CreateAShip extends Component {
       });
     });
   }
+
+  showVader() {
+    return this.setState({
+      showVader: !this.state.showVader
+    });
+  }
+
   editShip(id) {
     let shipObject = {
       name: this.state.name,
@@ -195,44 +206,51 @@ export default class CreateAShip extends Component {
     });
     console.log(this.state);
     return (
-      <div className="create-ship-class">
-        <div className="map-input">
-          <span>Name:</span>
-          <input
-            value={this.state.name}
-            onChange={e => this.onChangeHandler(e, "name")}
-          />
-          <span>Max Speed:</span>
-          <br />
-          <input
-            value={this.state.maxSpeed}
-            onChange={e => this.onChangeHandler(e, "maxSpeed")}
-          />
-          <span>Crew:</span>
-          <input
-            value={this.state.crew}
-            onChange={e => this.onChangeHandler(e, "crew")}
-          />
-          <span>Cargo Capacity:</span>
-          <input
-            value={this.state.cargoCapacity}
-            onChange={e => this.onChangeHandler(e, "cargoCapacity")}
-          />
-          <br />
-          <br />
-          <Button
-            className="red-button"
-            size="small"
-            variant="raised"
-            color="secondary"
-            onClick={() => this.createAShip()}
-          >
-            ORDER
-          </Button>
-        </div>
+      <div>
+        <HomeButton moveToHome={this.props.moveToHome} />
+        <div className="create-ship-class">
+          <div className="map-input">
+            <span>Name:</span>
+            <input
+              value={this.state.name}
+              onChange={e => this.onChangeHandler(e, "name")}
+            />
+            <span>Max Speed:</span>
+            <br />
+            <input
+              value={this.state.maxSpeed}
+              onChange={e => this.onChangeHandler(e, "maxSpeed")}
+            />
+            <span>Crew:</span>
+            <input
+              value={this.state.crew}
+              onChange={e => this.onChangeHandler(e, "crew")}
+            />
+            <span>Cargo Capacity:</span>
+            <input
+              value={this.state.cargoCapacity}
+              onChange={e => this.onChangeHandler(e, "cargoCapacity")}
+            />
+            <br />
+            <br />
+            <Button
+              className="red-button"
+              size="small"
+              variant="raised"
+              color="secondary"
+              onClick={() => this.createAShip()}
+            >
+              ORDER
+            </Button>
+          </div>
 
-        <div className="ship-create-result" />
-        {!this.state.editFlag ? mapShipArray : inputMapShipArray}
+          <div className="ship-create-result" />
+          {!this.state.editFlag ? mapShipArray : inputMapShipArray}
+        </div>
+        {this.state.showVader ? (
+          <DarthVader moveToHome={this.props.moveToHome} />
+        ) : null}
+        <div className="vader" onClick={this.showVader} />
       </div>
     );
   }

@@ -22,6 +22,7 @@ class App extends Component {
     };
     this.enableShipMenu = this.enableShipMenu.bind(this);
     this.enableForecastMenu = this.enableForecastMenu.bind(this);
+    this.enterHomeScreen = this.enterHomeScreen.bind(this);
   }
   enableShipMenu() {
     return this.setState({
@@ -35,6 +36,14 @@ class App extends Component {
       forecastEnabled: !this.state.forecastEnabled,
       buttonsVisibility: !this.state.buttonsVisibility,
       introVisibility: !this.state.introVisibility
+    });
+  }
+  enterHomeScreen() {
+    return this.setState({
+      createAShipEnabled: false,
+      forecastEnabled: false,
+      buttonsVisibility: true,
+      introVisibility: true
     });
   }
 
@@ -70,7 +79,9 @@ class App extends Component {
                 Forecast
               </Button>
             ) : null}
-            {this.state.forecastEnabled ? <Forecast /> : null}
+            {this.state.forecastEnabled ? (
+              <Forecast moveToHome={this.enterHomeScreen} />
+            ) : null}
           </div>
 
           <div className="right-button">
@@ -84,7 +95,9 @@ class App extends Component {
                 Spaceship Lab
               </Button>
             ) : null}
-            {this.state.createAShipEnabled ? <CreateAShip /> : null}
+            {this.state.createAShipEnabled ? (
+              <CreateAShip moveToHome={this.enterHomeScreen} />
+            ) : null}
           </div>
         </div>
         <p />
