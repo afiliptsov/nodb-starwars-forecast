@@ -1,0 +1,102 @@
+.map-result {
+  border: 3px solid #ffffffb7;
+  padding: 10px;
+  margin: 2px 2px;
+  font-size: 10px;
+  font-family: "Roboto Mono", monospace;
+  background-color: #222e6d;
+  border-radius: 10px;
+  box-shadow: 4px 4px 5px rgb(0, 0, 0);
+  width: 28%;
+  margin: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.map-result p {
+  margin: 5px 0;
+  border-radius: 2px;
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.75);
+  background-color: #787878e7;
+  border: 1px solid #3e4a8a;
+  padding: 3px;
+}
+
+.map-result-1 {
+  border: 3px solid #ffffffb7;
+  padding: 10px;
+  margin: 2px 2px;
+  font-size: 10px;
+  font-family: "Roboto Mono", monospace;
+  background-color: #222e6d;
+  border-radius: 10px;
+  box-shadow: 4px 4px 5px rgb(0, 0, 0);
+  width: 28%;
+  margin: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+.map-result-1 p {
+  margin: 5px 0;
+  border-radius: 2px;
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.75);
+  background-color: #787878e7;
+  border: 1px solid #3e4a8a;
+  padding: 3px;
+}
+
+.map-input {
+  border: 3px solid #ffffffb7;
+  padding: 5px;
+  margin: 2px 2px;
+  font-size: 10px;
+  font-family: "Roboto Mono", monospace;
+  background-color: #222e6d;
+  border-radius: 10px;
+  box-shadow: 4px 4px 5px rgb(0, 0, 0);
+  width: 25%;
+  margin: 10px;
+  display: inline-block;
+}
+.map-input input {
+  background-color: #787878e7;
+  color: white;
+}
+.red-button {
+  margin-top: 10vh;
+  width: 7.5vw;
+}
+
+.ship-card {
+  display: flex;
+  border: 3px solid #ffffffb7;
+  width: 22%;
+  flex-direction: column;
+  padding: 5px;
+  margin: 2px 2px;
+  font-size: 10px;
+  font-family: "Roboto Mono", monospace;
+  background-color: #222e6d;
+  border-radius: 10px;
+  box-shadow: 4px 4px 5px rgb(0, 0, 0);
+
+  /* margin: 4px;
+  margin-left: 30vw; */
+}
+.ship-card p {
+  margin: 5px 0;
+  border-radius: 2px;
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.75);
+  background-color: #787878e7;
+  border: 1px solid #3e4a8a;
+  padding: 3px;
+}
+
+.ships-container {
+  width: 98%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 18vw;
+  justify-content: center;
+}

@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 
+import Button from "material-ui/Button";
+import "./CreateAShip.css";
+
 import axios from "axios";
 const baseUrl = "http://localhost:3001/api/ships";
 
@@ -23,21 +26,8 @@ export default class CreateAShip extends Component {
     this.editShip = this.editShip.bind(this);
   }
 
-  //EDIT IS NOT FINISHED!!!!!!
-  //EDIT IS NOT FINISHED!!!!!!
-  //EDIT IS NOT FINISHED!!!!!!
-  //EDIT IS NOT FINISHED!!!!!!
-  //EDIT IS NOT FINISHED!!!!!!
-  //EDIT IS NOT FINISHED!!!!!!
-  //EDIT IS NOT FINISHED!!!!!!
-  //EDIT IS NOT FINISHED!!!!!!
-
   onChangeHandler(e, key) {
     console.log("onChange");
-    // console.log(this.state.shipArray);
-    // let shipArrayCopy = this.state.shipArray.slice();
-    // console.log(shipArrayCopy);
-    // shipArrayCopy[key] = e.target.value;
     let shipObj = {};
     shipObj[key] = e.target.value;
     this.setState(shipObj);
@@ -109,15 +99,6 @@ export default class CreateAShip extends Component {
     );
   }
 
-  // editModeEnabled(condition) {
-  //   if (edit === true) {
-  //     //EDIT IS NOT FINISHED!!!!!!
-  //     //EDIT IS NOT FINISHED!!!!!!
-  //     //EDIT IS NOT FINISHED!!!!!!
-  //     //EDIT IS NOT FINISHED!!!!!!
-  //   }
-  // }
-
   toggleEdit() {
     console.log("WORKED");
 
@@ -130,26 +111,38 @@ export default class CreateAShip extends Component {
   render() {
     let mapShipArray = this.state.shipArray.map((element, i) => {
       return (
-        <div key={i}>
+        <div className="map-result" key={i}>
+          <span>Name:</span>
           <p>{element.name}</p>
+          <span>Max Speed:</span>
           <p>{element.maxSpeed}</p>
+          <span>Crew:</span>
           <p>{element.crew}</p>
+          <span>Cargo Capacity:</span>
           <p>{element.cargoCapacity}</p>
-          <button onClick={id => this.removeShip(element.id)}>Remove</button>
+          <Button
+            size="small"
+            variant="raised"
+            color="primary"
+            onClick={id => this.removeShip(element.id)}
+          >
+            Remove
+          </Button>
 
-          <button onClick={() => this.toggleEdit()}>Edit</button>
+          <Button
+            size="small"
+            variant="raised"
+            color="primary"
+            onClick={() => this.toggleEdit()}
+          >
+            Edit
+          </Button>
         </div>
       );
     });
     let inputMapShipArray = this.state.shipArray.map((el, id) => {
-      // let mapShipObject = {
-      //   name: el.name,
-      //   maxSpeed: el.maxSpeed,
-      //   crew: el.crew,
-      //   cargoCapacity: el.cargoCapacity
-      // };
       return (
-        <div key={id}>
+        <div className="map-result-1" key={id}>
           <div>
             <p>{el.name}</p>
             <input
@@ -180,36 +173,62 @@ export default class CreateAShip extends Component {
             value={this.state.cargoCapacity}
             onChange={e => this.onChangeHandler(e, "cargoCapacity")}
           />
-          <button onClick={id => this.removeShip(el.id)}>Remove</button>
-          <button onClick={id => this.editShip(el.id)}>Save</button>
+          <br />
+          <Button
+            size="small"
+            variant="raised"
+            color="primary"
+            onClick={id => this.removeShip(el.id)}
+          >
+            Remove
+          </Button>
+          <Button
+            size="small"
+            variant="raised"
+            color="primary"
+            onClick={id => this.editShip(el.id)}
+          >
+            Save
+          </Button>
         </div>
       );
     });
     console.log(this.state);
     return (
       <div className="create-ship-class">
-        <div className="ship-input-box">
-          <button onClick={() => this.createAShip()}>ORDER</button>
-          <label>Name:</label>
+        <div className="map-input">
+          <span>Name:</span>
           <input
             value={this.state.name}
             onChange={e => this.onChangeHandler(e, "name")}
           />
-          <label>Maximum Speed:</label>
+          <span>Max Speed:</span>
+          <br />
           <input
             value={this.state.maxSpeed}
             onChange={e => this.onChangeHandler(e, "maxSpeed")}
           />
-          <label>Crew:</label>
+          <span>Crew:</span>
           <input
             value={this.state.crew}
             onChange={e => this.onChangeHandler(e, "crew")}
           />
-          <label>Cargo:</label>
+          <span>Cargo Capacity:</span>
           <input
             value={this.state.cargoCapacity}
             onChange={e => this.onChangeHandler(e, "cargoCapacity")}
           />
+          <br />
+          <br />
+          <Button
+            className="red-button"
+            size="small"
+            variant="raised"
+            color="secondary"
+            onClick={() => this.createAShip()}
+          >
+            ORDER
+          </Button>
         </div>
 
         <div className="ship-create-result" />

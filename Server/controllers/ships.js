@@ -21,6 +21,7 @@ module.exports = {
   },
   deleteShip: (req, res) => {
     const deleteID = req.params.id;
+    console.log(req.params);
     shipIndex = shipList.findIndex(ship => ship.id == deleteID);
     shipList.splice(shipIndex, 1);
     res.status(200).send(shipList);

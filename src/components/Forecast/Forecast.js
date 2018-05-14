@@ -1,23 +1,17 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./Forecast.css";
+import Button from "material-ui/Button";
 
 const starWarsURL = "https://swapi.co/api/vehicles/";
 const baseWeatherUrl = "http://api.openweathermap.org/data/2.5/weather?q=";
 const apiKey = "&APPID=0a24ad14057cb763cfd0d01dab910c06";
-const weatherDallas =
-  "http://api.openweathermap.org/data/2.5/weather?q=Dallas&APPID=0a24ad14057cb763cfd0d01dab910c06";
-const weatherSanFrancisco =
-  "http://api.openweathermap.org/data/2.5/weather?q=San Francisco&APPID=0a24ad14057cb763cfd0d01dab910c06";
-const weatherLondon =
-  "http://api.openweathermap.org/data/2.5/weather?q=London&APPID=0a24ad14057cb763cfd0d01dab910c06";
 
 export default class Forecast extends Component {
   constructor() {
     super();
     this.state = {
       shipArr: [],
-      weatherDallas: "",
-      weatherSanFrancisco: "",
       city: "",
       weather: "",
       prediction: ""
@@ -52,7 +46,7 @@ export default class Forecast extends Component {
   makeWeatherForecast() {
     if ((this.state.weather = "Clouds")) {
       this.setState({
-        prediction: "WE ALL GONNA DIE"
+        prediction: "Test Weather"
       });
     }
   }
@@ -60,29 +54,62 @@ export default class Forecast extends Component {
   render() {
     let mapShipArr = this.state.shipArr.map((element, i) => {
       return (
-        <div key={i}>
+        <div key={i} className="ship-card">
+          <span>Name:</span>
           <p>{element.name}</p>
+          <span>Max Speed:</span>
           <p>{element.max_atmosphering_speed}</p>
+          <span>Crew:</span>
           <p>{element.crew}</p>
+          <span>Cargo Capacity:</span>
           <p>{element.cargo_capacity}</p>
-          <button>Choose Ship</button>
+          <Button size="small" variant="raised" color="primary">
+            Choose
+          </Button>
         </div>
       );
     });
 
     return (
       <div>
-        <input type="text" onChange={e => this.onChangeWeatherHandler(e)} />
-        {console.log(this.state.city)}
-        <button onClick={this.submitWeatherRequest}>Check Weather</button>
-        {console.log(this.state.weather)}
-        <div>{mapShipArr}</div>
-
-        <div>
-          <button onClick={this.makeWeatherForecast}>Check Result</button>
-          <p>{this.state.prediction}</p>
+        <div className="weather-input-submit-field">
+          <div>
+            <input
+              class="weather-input"
+              type="text"
+              onChange={e => this.onChangeWeatherHandler(e)}
+            />
+          </div>
+          {console.log(this.state.city)}
+          <div class="submit-weather-button">
+            <Button
+              size="small"
+              variant="raised"
+              color="primary"
+              onClick={this.submitWeatherRequest}
+            >
+              Submit city
+            </Button>
+          </div>
         </div>
-        {console.log(this.state.prediction)}
+
+        {console.log(this.state.weather)}
+        <div class="check-weather-result-button">
+          <span className="check-weather-output">{this.state.prediction}</span>
+          <Button
+            size="small"
+            variant="raised"
+            color="primary"
+            onClick={this.makeWeatherForecast}
+          >
+            Check Result
+          </Button>
+        </div>
+
+        <div id="render-ships">
+          <div className="ships-container">{mapShipArr}</div>
+          {console.log(this.state.prediction)}
+        </div>
       </div>
     );
   }

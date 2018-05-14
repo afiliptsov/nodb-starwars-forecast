@@ -1,5 +1,42 @@
-.App {
-  text-align: center;
+body {
+  background-color: #352f2f;
+  color: white;
+}
+
+.control-panel {
+  background-color: rgba(216, 216, 225, 0.112);
+  height: 800px;
+  border: 2px solid black;
+}
+
+.typist-middle-text {
+  width: 900px;
+  height: 70px;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 35vh;
+  padding: 4px;
+  color: #ffff82;
+  font-size: 45px;
+  font-family: "Roboto Mono", monospace;
+  border: 5px solid white;
+  background-color: rgba(255, 255, 255, 0.077);
+}
+
+.Forecast-create-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+}
+.main-element {
+  display: flex;
+  justify-content: space-around;
+  width: 65%;
+  margin: 0 auto;
+  margin-top: 10vh;
 }
 
 .App-logo {
@@ -23,6 +60,10 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

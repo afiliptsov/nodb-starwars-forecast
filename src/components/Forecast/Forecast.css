@@ -1,0 +1,71 @@
+.ship-card {
+  display: flex;
+  border: 3px solid #ffffffb7;
+  width: 22%;
+  flex-direction: column;
+  padding: 5px;
+  margin: 2px 2px;
+  font-size: 10px;
+  font-family: "Roboto Mono", monospace;
+  background-color: #222e6d;
+  border-radius: 10px;
+  box-shadow: 4px 4px 5px rgb(0, 0, 0);
+
+  /* margin: 4px;
+  margin-left: 30vw; */
+}
+.ship-card p {
+  margin: 5px 0;
+  border-radius: 2px;
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.75);
+  background-color: #787878e7;
+  border: 1px solid #3e4a8a;
+  padding: 3px;
+}
+
+.ships-container {
+  width: 98%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 18vw;
+  justify-content: center;
+}
+
+#render-ships {
+  margin-top: -14vh;
+}
+
+.weather-input-submit-field {
+  display: flex;
+  margin-left: -10vw;
+}
+.weather-input {
+  width: 160px;
+  height: 25px;
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.75);
+  border-radius: 5px 0px 0px 5px;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 14px;
+}
+
+.check-weather-result-button {
+  display: flex;
+  margin-top: 10px;
+  margin-left: -1.5vw;
+  height: 30px;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 14px;
+  color: black;
+}
+.check-weather-output {
+  background-color: white;
+  border-radius: 5px 0px 0px 5px;
+  display: flex;
+  margin-left: -8.5vw;
+  border: 2px solid white;
+  width: 160px;
+  height: 28px;
+  margin-bottom: 50px;
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.75);
+}
