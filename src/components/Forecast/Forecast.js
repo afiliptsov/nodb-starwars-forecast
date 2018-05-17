@@ -6,7 +6,6 @@ import HomeButton from "../HomeButton/HomeButton";
 
 const starWarsURL = "https://swapi.co/api/vehicles/";
 const baseWeatherUrl = "http://api.openweathermap.org/data/2.5/weather?q=";
-const apiKey = "&APPID=0a24ad14057cb763cfd0d01dab910c06";
 
 export default class Forecast extends Component {
   constructor(props) {
